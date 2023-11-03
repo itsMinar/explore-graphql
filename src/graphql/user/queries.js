@@ -1,3 +1,3 @@
 module.exports.queries = `#graphql
-    hello: String
+    getUserToken(email:String!, password:String!): String
 `;

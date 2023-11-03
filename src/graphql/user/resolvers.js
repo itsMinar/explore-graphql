@@ -1,10 +1,18 @@
+const UserService = require('../../services/user');
+
 const queries = {
-  hello: () => 'Hello, I am from GraphQL',
+  getUserToken: async (_, payload) => {
+    const token = await UserService.getUserToken(payload);
+
+    return token;
+  },
 };
 
 const mutations = {
-  createUser: async (_, { firstName, lastName, email, password }) => {
-    return 'randomid';
+  createUser: async (_, payload) => {
+    const res = await UserService.createUser(payload);
+
+    return res.id;
   },
 };
 
